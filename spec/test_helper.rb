@@ -13,7 +13,7 @@ class TestHelper
   def setup_postgresql
     ActiveRecord::Base.establish_connection(
       :adapter  => 'postgresql',
-      :database => 'rangetastic',
+      :database => 'connection_ninja',
       :username => @username,
       :password => @password,
       :host     => @host

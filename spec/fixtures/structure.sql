@@ -18,9 +18,9 @@ CREATE TABLE orders (
     updated_at timestamp without time zone
 );
 
-DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS customers;
 
-DROP SEQUENCE IF EXISTS orders_id_seq;
+DROP SEQUENCE IF EXISTS customers_id_seq;
 
 CREATE SEQUENCE customers_id_seq
     START WITH 1
