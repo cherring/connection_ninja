@@ -16,5 +16,5 @@ Spec::Runner.configure do |config|
   test = TestHelper.new
   test.setup_postgresql
   RAILS_ENV = "development"
-  PROJECT_ROOT = File.dirname(__FILE__) + "/../"
+  RAILS_ROOT = File.dirname(__FILE__) + "/.."
 end
