@@ -1,1 +1,1 @@
-This is connection ninja
+This is connection ninja, still sorting it out, Documentation soon.

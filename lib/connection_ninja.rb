@@ -7,8 +7,9 @@ module ConnectionNinja
   end
   
   module ClassMethods
-    RAILS_ENV = "development"
-    RAILS_ROOT = File.dirname(__FILE__) + "/.."
+    # These are just here to use to run my specs, will work out how to fake these later
+    # RAILS_ENV = "development"
+    # RAILS_ROOT = File.dirname(__FILE__) + "/.."
     attr_accessor :connection_ninja_config_file
     attr_accessor :connection_ninja_config
     
