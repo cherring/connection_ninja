@@ -3,6 +3,13 @@ require 'connection_ninja'
 include ConnectionNinja
 
 describe Order do
+  
+  it "should have 1 connection only on startup" do
+    count =  ActiveRecord::Base.connection.select_all("select count(*) from pg_stat_activity")
+    count = count[0]
+    count["count"].to_i.should == 1
+  end
+  
   it "should be connected to the default database" do
     Order.connection.current_database.should == "connection_ninja"
   end
