@@ -110,4 +110,10 @@ describe Customer,"check_config" do
     Customer.config_ok?
     Customer.connection_ninja_config["host"].should == "localhost"
   end
+  
+  it "should return true if all credentials given" do
+    Customer.load_config("#{RAILS_ROOT}/config/connection_ninja.yml", :alternate)
+    Customer.config_ok?.should == true
+  end
+  
 end

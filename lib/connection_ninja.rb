@@ -32,6 +32,7 @@ module ConnectionNinja
           @connection_ninja_config["password"] = ""
         end
       end
+      true
     end
     
     def connect_to_db
