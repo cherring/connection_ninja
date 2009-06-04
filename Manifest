@@ -1,0 +1,12 @@
+CHANGELOG
+config/connection_ninja.yml
+connection_ninja.gemspec
+lib/connection_ninja.rb
+Manifest
+Rakefile
+README.markdown
+spec/connection_ninja_spec.rb
+spec/fixtures/models.rb
+spec/fixtures/structure.sql
+spec/spec_helper.rb
+spec/test_helper.rb
