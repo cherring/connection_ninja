@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Chris Herring"]
-  s.date = %q{2009-06-04}
+  s.date = %q{2009-06-06}
   s.description = %q{Inject a new connection to an alternate database into an ActiveRecord Model at runtime}
   s.email = %q{chris.herring.iphone@gmail.com}
   s.extra_rdoc_files = ["CHANGELOG", "lib/connection_ninja.rb", "README.markdown"]
