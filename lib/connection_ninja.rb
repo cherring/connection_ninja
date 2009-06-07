@@ -24,7 +24,7 @@ module ConnectionNinja
     end
       
     def connect_to_db(config)
-      establish_connection(ActiveRecord::Base.configurations['alternate_development'])
+      establish_connection(ActiveRecord::Base.configurations[config])
     end
         
   end
