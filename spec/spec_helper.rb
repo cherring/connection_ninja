@@ -17,4 +17,12 @@ Spec::Runner.configure do |config|
   test.setup_postgresql
   RAILS_ENV = "development"
   RAILS_ROOT = File.dirname(__FILE__) + "/.."
+  
+  # This is to simulate what would be loaded out of datbase.yml for ActiveRecord
+  ActiveRecord::Base.configurations = { 'alternate_development' => { 
+    'adapter' => 'postgresql',
+    'database' => 'connection_ninja_alternate',
+    'host' => 'localhost'
+    }
+  }
 end
