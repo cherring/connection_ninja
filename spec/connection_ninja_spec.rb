@@ -22,7 +22,7 @@ end
 describe Customer,"config" do
   
   it "should return the database config" do
-    Customer.config(:alternate).should == ActiveRecord::Base.configurations['alternate_development']
+    Customer.config(:alternate).should == 'alternate_development'
   end
 end
 
@@ -30,8 +30,8 @@ end
 describe Customer,"use_connection_ninja" do  
 
   it "should call connect_to_db" do
-    Customer.stub!(:config).and_return(ActiveRecord::Base.configurations['alternate_development'])
-    Customer.should_receive(:connect_to_db).with("config")
+    Customer.stub!(:config).and_return('alternate_development')
+    Customer.should_receive(:connect_to_db).with(Customer.config)
     Customer.use_connection_ninja(:alternate)
   end
   
@@ -40,8 +40,7 @@ end
 describe Customer,"connect_to_db" do
   
   it "should call establish_connection" do
-    Customer.stub!(:establish_connection)
     Customer.should_receive(:establish_connection)
-    Customer.connect_to_db
+    Customer.connect_to_db('alternate_development')
   end
 end

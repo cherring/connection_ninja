@@ -1,1 +1,4 @@
 Changelog.
+
+Took out connnection_ninja.yml in favour of using database.yml to leverage the use of ActiveRecord::Base.configurations
+Took out connection_ninja_config and connection_ninja_config_file since I don't need them when using database.yml
