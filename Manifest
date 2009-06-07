@@ -1,5 +1,5 @@
 CHANGELOG
-config/connection_ninja.yml
+config/database.example.yml
 connection_ninja.gemspec
 lib/connection_ninja.rb
 Manifest
