@@ -3,6 +3,7 @@ config/database.example.yml
 connection_ninja.gemspec
 lib/connection_ninja.rb
 Manifest
+MIT-License
 Rakefile
 README.markdown
 spec/connection_ninja_spec.rb
