@@ -1,11 +1,11 @@
 CHANGELOG
+MIT-License
+Manifest
+README.markdown
+Rakefile
 config/database.example.yml
 connection_ninja.gemspec
 lib/connection_ninja.rb
-Manifest
-MIT-License
-Rakefile
-README.markdown
 spec/connection_ninja_spec.rb
 spec/fixtures/models.rb
 spec/fixtures/structure.sql

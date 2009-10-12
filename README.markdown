@@ -3,6 +3,21 @@ Introduction
 
 Connection Ninja is a really simple gem to help connection to multiple databases. I wrote it to help with the way we were connected a new application at work to our older application that holds the data we needed to do reporting on. We have code (models) that is shared between those two applications, and I wanted them to be able to connect to the correct database regardless which app they were in, and therefore which database.yml they were reading.
 
+Installation
+============
+
+To install connection_ninja you need to be using gemcutter, so install it if you haven't:
+
+    sudo gem install gemcutter
+    
+And enable the gem source
+
+    gem tumble
+    
+Then you can install connection_ninja
+
+    sudo gem install connection_ninja
+
 Configuration
 =============
 

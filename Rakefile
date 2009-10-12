@@ -2,7 +2,7 @@ require 'rubygems'
 require 'rake'
 require 'echoe'
 
-Echoe.new('connection_ninja', '0.3.3') do |p|
+Echoe.new('connection_ninja', '0.3.4') do |p|
   p.description     = "Inject a new connection to an alternate database into an ActiveRecord Model at runtime"
   p.summary         = ""
   p.url             = "http://github.com/cherring/connection_ninja"
