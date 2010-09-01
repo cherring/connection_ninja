@@ -1,6 +1,0 @@
-alternate_development:
-  adapter: postgresql
-  database: connection_ninja_alternate
-  user: chris
-  password:
-  host: localhost
