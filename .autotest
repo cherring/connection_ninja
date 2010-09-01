@@ -1,2 +1,1 @@
 Autotest.add_discovery { "rspec2" }
-require "test_notifier/runner/autotest"

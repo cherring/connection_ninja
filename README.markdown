@@ -8,16 +8,8 @@ Installation
 
 To install connection_ninja you need to be using gemcutter, so install it if you haven't:
 
-    sudo gem install gemcutter
+    gem install connection_ninja
     
-And enable the gem source
-
-    gem tumble
-    
-Then you can install connection_ninja
-
-    sudo gem install connection_ninja
-
 Configuration
 =============
 
@@ -25,29 +17,30 @@ Configuration
       use_connection_ninja(:database)
     end
 
-Then in your after your normal configuration in database.yml:
+Then in your after your normal configuration in database.yml add a new group:
 
-    database_development:
-      adapter: postgresql
-      database: database_name
-      user: username
+    database:
+      development:
+        adapter: postgresql
+        database: database_name
+        user: username
 
-    database_test:
-      adapter: postgresql
-      database: database_name
-      user: username
+      test:
+        adapter: postgresql
+        database: database_name
+        user: username
 
-    database_production:
-      adapter: postgresql
-      database: database_name
-      user: username
+      production:
+        adapter: postgresql
+        database: database_name
+        user: username
 
 Connection ninja takes the database name you pass in and appends the environment on the end so it is important that you name the entries in database.yml as "#{database}_#{RAILS_ENV}" or it won't work.
 
 WHY?
 ===
 
-If you look at the code you will probably wonder why I didn't just call establish_connection "database_#{RAILS_ENV}", well at first I went about it differently, and thought I needed it. Now I realised maybe I don't, but it was a great exercise in learning how to write a gem and I learned a few things about ActiveRecord along the way which was great. It also gave me IMO a nice clean way to connect a bunch of models to the right database regardless of which of my apps the code was sitting in.
+Pure laziness. Rather than putting together a hash you can just call a group with use_connection_ninja(:group)
 
 How I used it
 =============

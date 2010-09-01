@@ -1,8 +1,8 @@
 require 'spec/spec_helper'
 
-describe ActiveRecord::Base do
+describe ActiveRecord::Base, "methods" do
   before do
-    ActiveRecord::Base.send(:include, ConnectionNinja::ActiveRecord)
+    ActiveRecord::Base.send(:extend, ConnectionNinja::Orms::ActiveRecord)
   end
 
   it "should have configurtions" do
@@ -14,44 +14,35 @@ describe ActiveRecord::Base do
   end
 end
 
-#describe Order do  
-#  it "should be connected to the default database" do
-#    Order.connection.current_database.should == "connection_ninja"
-#  end
-#end
+describe ConnectionNinja::Orms::ActiveRecord, "exception" do
+  it "should raise an error if connection group not in database.yml" do
+    lambda{ActiveRecord::Base.use_connection_ninja(:fial)}.should raise_error(::ActiveRecord::AdapterNotFound)
+  end
+end
 
-#describe Customer do
-#  it "should be connected to the alternate database" do
-#    Customer.connection.current_database.should == "connection_ninja_alternate"
-#  end
+describe Customer do
+  before do
+    ActiveRecord::Base.send(:extend, ConnectionNinja::Orms::ActiveRecord)
+    @connection = Customer.establish_connection
+  end
   
-#  it "should respond to use_connection_ninja" do
-#    Customer.respond_to?(:use_connection_ninja).should == true
-#  end  
-#end
+  it "should be connected to the alternate database" do
+    Customer.connection.current_database.should == "ninja_one"
+  end
+end
 
-#describe Customer,"config" do
-#  
-#  it "should return the database config" do
-#    Customer.config(:alternate).should == ActiveRecord::Base.configurations['alternate_development']
-#  end
-#end
+describe Order do
+  before do
+    ActiveRecord::Base.send(:extend, ConnectionNinja::Orms::ActiveRecord)
+    @connection = Order.send(:use_connection_ninja, :other)
+  end
 
+  it "should return correct configuration" do
+    Order.send(:ninja_config, :other).should == {"username"=>"rails", "adapter"=>"postgresql", "database"=>"ninja_two", "host"=>"localhost", "password"=>"rails"}
+  end
 
-#describe Customer,"use_connection_ninja" do  
-#
-#  it "should call connect_to_db" do
-#    Customer.stub!(:config).and_return(ActiveRecord::Base.configurations['alternate_development'])
-#    Customer.should_receive(:connect_to_db).with(Customer.config)
-#    Customer.use_connection_ninja(:alternate)
-#  end
-# 
-#end
+  it "should be connected to the default database" do
+    Order.connection.current_database.should == "ninja_two"
+  end
+end
 
-#describe Customer,"connect_to_db" do
-#  
-#  it "should call establish_connection" do
-#    Customer.should_receive(:establish_connection)
-#    Customer.connect_to_db('alternate_development')
-#  end
-#end
