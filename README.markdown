@@ -6,7 +6,17 @@ Connection Ninja is a really simple gem to help connection to multiple databases
 Installation
 ============
 
+Due to hopefully everyone upgrading to rails 3, if you need to use this with Rails 2.x just install the old version.
+
 Install the gem:
+
+Rails 2.x
+=========
+
+    gem install connection_ninja -v 0.3.5
+
+Rails 3
+=======
 
     gem install connection_ninja
     
