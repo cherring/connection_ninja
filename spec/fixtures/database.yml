@@ -1,0 +1,20 @@
+development: &development
+  database: ninja_one
+  host: localhost
+  adapter: postgresql
+  username: rails
+  password: rails
+
+test: 
+  <<: *development
+
+other:
+  development: &development
+    database: ninja_two
+    host: localhost
+    adapter: postgresql
+    username: rails
+    password: rails
+
+  test: 
+    <<: *development

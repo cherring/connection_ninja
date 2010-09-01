@@ -1,28 +1,22 @@
-# Inspiration gained from Thinking Sphinx's test suite via Ryan Bigg's by_star test suite.
+$LOAD_PATH.unshift(File.dirname(__FILE__))
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+require 'rspec'
+require 'rspec/autorun'
 
-$:.unshift File.dirname(__FILE__) + '/../lib'
-
-require 'rubygems'
-require 'activerecord'
+require 'rails'
+require 'active_record'
+require 'connection_ninja/active_record'
 require 'connection_ninja'
-require 'spec/fixtures/models'
-require 'spec/test_helper'
+
+#require 'spec/fixtures/models'
+#require 'spec/test_helper'
 
 FileUtils.mkdir_p "#{Dir.pwd}/tmp"
+ActiveRecord::Base.logger         = Logger.new(StringIO.new)
+ActiveRecord::Base.configurations = YAML.load_file(File.join("spec", "fixtures", "database.yml"))
 
-ActiveRecord::Base.logger = Logger.new(StringIO.new)
-
-Spec::Runner.configure do |config|  
-  test = TestHelper.new
-  test.setup_postgresql
-  RAILS_ENV = "development"
-  RAILS_ROOT = File.dirname(__FILE__) + "/.."
+Rspec.configure do |config|
+  #test = TestHelper.new
+  #test.setup_postgresql
   
-  # This is to simulate what would be loaded out of datbase.yml for ActiveRecord
-  ActiveRecord::Base.configurations = { 'alternate_development' => { 
-    'adapter' => 'postgresql',
-    'database' => 'connection_ninja_alternate',
-    'host' => 'localhost'
-    }
-  }
 end
