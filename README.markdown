@@ -6,7 +6,7 @@ Connection Ninja is a really simple gem to help connection to multiple databases
 Installation
 ============
 
-To install connection_ninja you need to be using gemcutter, so install it if you haven't:
+Install the gem:
 
     gem install connection_ninja
     
@@ -17,7 +17,7 @@ Configuration
       use_connection_ninja(:database)
     end
 
-Then in your after your normal configuration in database.yml add a new group:
+After your normal configuration in database.yml add a new group:
 
     database:
       development:
@@ -34,8 +34,6 @@ Then in your after your normal configuration in database.yml add a new group:
         adapter: postgresql
         database: database_name
         user: username
-
-Connection ninja takes the database name you pass in and appends the environment on the end so it is important that you name the entries in database.yml as "#{database}_#{RAILS_ENV}" or it won't work.
 
 WHY?
 ===
