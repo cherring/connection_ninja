@@ -16,7 +16,8 @@ Gem::Specification.new do |s|
     "README.markdown"
   ]
   s.files = [
-    ".gitignore",
+    ".autotest",
+     ".gitignore",
      "CHANGELOG",
      "MIT-License",
      "Manifest",
@@ -26,10 +27,9 @@ Gem::Specification.new do |s|
      "connection_ninja.gemspec",
      "lib/connection_ninja.rb",
      "spec/connection_ninja_spec.rb",
+     "spec/fixtures/database.yml",
      "spec/fixtures/models.rb",
-     "spec/fixtures/structure.sql",
-     "spec/spec_helper.rb",
-     "spec/test_helper.rb"
+     "spec/spec_helper.rb"
   ]
   s.homepage = %q{http://github.com/cherring/connection_ninja}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -39,8 +39,7 @@ Gem::Specification.new do |s|
   s.test_files = [
     "spec/spec_helper.rb",
      "spec/fixtures/models.rb",
-     "spec/connection_ninja_spec.rb",
-     "spec/test_helper.rb"
+     "spec/connection_ninja_spec.rb"
   ]
 
   if s.respond_to? :specification_version then
