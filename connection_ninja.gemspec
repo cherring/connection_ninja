@@ -26,6 +26,8 @@ Gem::Specification.new do |s|
      "VERSION",
      "connection_ninja.gemspec",
      "lib/connection_ninja.rb",
+     "lib/connection_ninja/orms/active_record.rb",
+     "lib/connection_ninja/railtie.rb",
      "spec/connection_ninja_spec.rb",
      "spec/fixtures/database.yml",
      "spec/fixtures/models.rb",

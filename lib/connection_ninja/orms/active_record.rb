@@ -13,7 +13,7 @@ module ConnectionNinja
         begin
           configurations[config_group.to_s][Rails.env]
         rescue
-          raise ::ActiveRecord::AdapterNotFound, "connection ninja could not find the #{Rails.env} configuration group \"#{config_group.to_s}\""
+          raise ::ActiveRecord::AdapterNotFound, "connection ninja could not find the #{Rails.env} configuration for group \"#{config_group.to_s}\""
         end
       end
     end
