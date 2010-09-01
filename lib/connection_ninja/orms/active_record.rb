@@ -11,9 +11,9 @@ module ConnectionNinja
       protected
       def ninja_config(config_group)
         begin
-          configurations[config_group.to_s][Rails.env]
+          configurations[config_group.to_s][::Rails.env]
         rescue
-          raise ::ActiveRecord::AdapterNotFound, "connection ninja could not find the #{Rails.env} configuration for group \"#{config_group.to_s}\""
+          raise ::ActiveRecord::AdapterNotFound, "connection ninja could not find the #{::Rails.env} configuration for group \"#{config_group.to_s}\""
         end
       end
     end
