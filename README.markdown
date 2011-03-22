@@ -8,28 +8,21 @@ Installation
 
 Due to hopefully everyone upgrading to rails 3, if you need to use this with Rails 2.x just install the old version.
 
-Install the gem:
-
-Rails 2.x
-=========
-
-    gem install connection_ninja -v 0.3.5
-
 Rails 3
 =======
 
     gem install connection_ninja
     
-Configuration
-=============
+Rails 3 Configuration
+=====================
 
     class MyModel < ActiveRecord::Base
-      use_connection_ninja(:database)
+      use_connection_ninja(:other_database)
     end
 
 After your normal configuration in database.yml add a new group:
 
-    database:
+    other_database:
       development:
         adapter: postgresql
         database: database_name
@@ -44,6 +37,35 @@ After your normal configuration in database.yml add a new group:
         adapter: postgresql
         database: database_name
         user: username
+
+Rails 2.x
+=========
+
+    gem install connection_ninja -v 0.3.5
+
+Rails 2.x Configuration
+=====================
+
+    class MyModel < ActiveRecord::Base
+      use_connection_ninja(:other_database)
+    end
+
+After your normal configuration in database.yml add a new group:
+
+    other_database_development:
+      adapter: postgresql
+      database: database_name
+      user: username
+
+    other_database_test:
+      adapter: postgresql
+      database: database_name
+      user: username
+
+    other_database_production:
+      adapter: postgresql
+      database: database_name
+      user: username
 
 WHY?
 ===
