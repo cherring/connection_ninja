@@ -25,7 +25,7 @@ describe Customer do
     ActiveRecord::Base.send(:extend, ConnectionNinja::Orms::ActiveRecord)
     @connection = Customer.establish_connection
   end
-  
+
   it "should be connected to the alternate database" do
     Customer.connection.current_database.should == "ninja_one"
   end
