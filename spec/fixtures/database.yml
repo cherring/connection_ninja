@@ -5,7 +5,7 @@ development: &development
   username: rails
   password: rails
 
-test: 
+test:
   <<: *development
 
 other:
@@ -16,5 +16,5 @@ other:
     username: rails
     password: rails
 
-  test: 
+  test:
     <<: *development

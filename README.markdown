@@ -12,7 +12,7 @@ Rails 3
 =======
 
     gem install connection_ninja
-    
+
 Rails 3 Configuration
 =====================
 

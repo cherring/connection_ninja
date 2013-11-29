@@ -7,7 +7,7 @@ module ConnectionNinja
       def use_connection_ninja(config_group)
           establish_connection ninja_config(config_group)
       end
-      
+
       protected
       def ninja_config(config_group)
         begin
